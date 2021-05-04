@@ -1,44 +1,7 @@
-.cards {
-    margin: 0 auto;
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    font-family: sans-serif;
-}
 
-.card {
-    box-shadow: 0 0 3px rgb(0, 0, 0.1);
-}
-
-.card_image {
+.container{
     width: 100%;
-    display: block;
-} 
-
-.card_image1 {
-    width: 100%;
-    height: auto;
-  
-    display: block;
-} 
-
-
-.card_title {
-    line-height: 1.5;
-    font-size: 0.9em;
-    padding: 15px;
-    background: #fafafa;
-    margin-top: 0;
-    display: flex;
-}
-
-.card_year {
-    padding: 15px;
-    display: flex;
-    background: #eeeeee;
-    font-size: 0.8em;
-    border-bottom: 2px solid #cccc;
+    justify-content: center;
 }
 
 .img-container{
@@ -48,5 +11,11 @@
     justify-content: center;
 }
 
+
 .item-movie { margin : 10 px ;
-                padding: 10px; }
+                padding: 10px; 
+                display: grid;
+                background: #eeeeee;
+                font-size: 0.8em;
+                border-bottom: 2px solid #cccc;
+            }
