@@ -3,8 +3,6 @@ export const movies = () => {
     "http://www.omdbapi.com/?s=%27blade%20runner%27&apikey=cea54230"
   );
 
-  console.log(promiseFetch);
-
   promiseFetch
 
     .then((ris) => {
@@ -13,23 +11,7 @@ export const movies = () => {
 
     .then((arrjson) => {
       const arraymov = arrjson.Search;
-      console.log(arraymov);
-
-      const main = document.getElementById("main");
-      arraymov.forEach((risfilm) => {
-        const div = document.createElement("div");
-        div.classList.add("item-movie");
-
-        const image = document.createElement("img");
-        image.setAttribute("src", risfilm.Poster);
-
-        const text = document.createElement("p");
-        text.innerHTML = `${risfilm.Title + '  |  ' + risfilm.Year}`;
-
-        div.appendChild(image);
-        div.appendChild(text);
-        main.appendChild(div);
-      });
+      arraymov.forEach(addfilm);
     })
 
     .catch((err) => {
@@ -37,6 +19,30 @@ export const movies = () => {
     });
 };
 
+//Funzione per creare DIV dinamiche e inserirci i dati dell'API
+const addfilm = (risfilm) => {
+
+  const main = document.getElementById("main");
+  
+  const div = document.createElement("div");
+  const image = document.createElement("img");
+  const text = document.createElement("p");
+  const text2 = document.createElement("p");
+ 
+  div.classList.add("item-movie");
+  image.setAttribute("src", risfilm.Poster);
+  image.setAttribute("class","imgstyle");
+  text.appendChild(document.createTextNode('Titolo : ' + risfilm.Title));
+  text2.appendChild(document.createTextNode('Anno : ' + risfilm.Year));
+  text.setAttribute("class","textstyle");
+  text2.setAttribute("class","textstyle");
+  if (risfilm.Poster != "N/A") { 
+  div.appendChild(image);
+  div.appendChild(text);
+  div.appendChild(text2);
+  main.appendChild(div);
+  }
+}
 
 
 
