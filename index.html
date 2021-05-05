@@ -8,34 +8,17 @@
     <title>Titolo provagit remote add origin https://github.com/frankfarfan96/film.git </title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload = "movies()" style="background-color: rgba(0, 0, 0, 0.795);">
     <script type="module">
     import {movies} from "./js/main.js";
     window.movies = movies;
     </script>
-    <script>
-        const movies = () => window.movies();
-    </script>
-
     <div class="container">
-        <h1>Movie App</h1>
         <br>
-     <button onclick="window.movies()" class="btn btn-primary mb-3">Aggiungi Film</button>
-   
-  
-      
-        
-            <div id="myImg" class="img-container">   
-            
-            </div>
-            <div id="main" class="img-container">   
-         
-         
-         
-       
-
-        
-   </div>
-   </div>
+    <h1 style="text-align: center; color: white;">Movie App</h1>
+        <br>
+    <div id="main" class="img-container">   
+    </div>
+    </div>
 </body>
 </html>
