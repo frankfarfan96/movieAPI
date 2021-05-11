@@ -1,50 +1,41 @@
 export const movies = () => {
+  const promiseFetch = fetch(
+    "http://www.omdbapi.com/?s=%27blade%20runner%27&apikey=cea54230"
+  );
 
-    const promiseFetch = fetch('http://www.omdbapi.com/?s=%27blade%20runner%27&apikey=cea54230');
-    
-    console.log(promiseFetch);
-    
-    promiseFetch
-    
-    .then(ris => {
+  console.log(promiseFetch);
+
+  promiseFetch
+
+    .then((ris) => {
       if (ris) return ris.json(); // in questo modo verifico che il risultato nn sia UNDEFINE or NULL
     })
 
-    .then(arrjson => {
+    .then((arrjson) => {
       const arraymov = arrjson.Search;
       console.log(arraymov);
-      
-      arraymov.forEach(risfilm => {
-       
-    
-        const main = document.getElementById("main");
-        const img1 = document.getElementById("main");
-       
+
+      const main = document.getElementById("main");
+      arraymov.forEach((risfilm) => {
+        const div = document.createElement("div");
+        div.classList.add("item-movie");
+
         const image = document.createElement("img");
-        const text = document.createElement("h2");
-        
-        text.innerHTML = `${risfilm.Title}`;
-      
-        image.setAttribute('src', risfilm.Poster);
-        img1.appendChild(image);
-        main.appendChild(text);
-     
-     
-        
-        
-       
-     
-   
-      
-      })
+        image.setAttribute("src", risfilm.Poster);
+
+        const text = document.createElement("p");
+        text.innerHTML = `${risfilm.Title + '  |  ' + risfilm.Year}`;
+
+        div.appendChild(image);
+        div.appendChild(text);
+        main.appendChild(div);
+      });
     })
 
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
-    })
-  }
-
-
+    });
+};
 
 
 

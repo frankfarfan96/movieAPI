@@ -47,3 +47,6 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.item-movie { margin : 10 px ;
+                padding: 10px; }
