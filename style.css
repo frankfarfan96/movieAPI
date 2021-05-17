@@ -1,7 +1,12 @@
+body{
+    background-image: url(/img/background.jpg);
+    background-size: contain;
+}
 
 .container{ 
     width: 100%;
     justify-content: center;
+    background-color: rgba(231, 39, 39, 0.55);
 }
 
 .img-container{
@@ -36,3 +41,6 @@
 
 }
 
+.btn{
+    margin: 0px 5px;
+}
